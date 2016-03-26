@@ -8,7 +8,7 @@ export const addTodo = (text) => {
   }
 }
 
-export const setVisibiltyFilter = (filter) => {
+export const setVisibilityFilter = (filter) => {
   return {
     type: 'SET_VISIBILITY_FILTER',
     filter
