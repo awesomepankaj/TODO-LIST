@@ -1,14 +1,15 @@
 import React, { PropTypes } from 'react'
+import ListItem from 'material-ui/lib/lists/list-item';
 
 const Todo = ({onClick, completed, text}) => (
-  <li 
+  <ListItem 
     onClick={onClick}
     style={{
       textDecoration: completed ? 'line-through' : 'none'
     }}
   >
   {text}
-  </li>
+  </ListItem>
 )
 
 Todo.PropTypes = {

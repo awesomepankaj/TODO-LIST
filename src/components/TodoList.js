@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react'
 import Todo from './Todo'
+import List from 'material-ui/lib/lists/list';
 
 const TodoList = ({todos, onTodoClick}) => (
-  <ul>
+  <div style={{display: 'flex', justifyContent: 'center'}}>
+  <List style={{width: '60%'}}>
     {
       todos.map(todo => 
         <Todo
@@ -12,7 +14,8 @@ const TodoList = ({todos, onTodoClick}) => (
         />         
       )
     }
-  </ul>
+  </List>
+  </div>
 )
 
 TodoList.propTypes = {

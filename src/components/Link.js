@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import FlatButton from 'material-ui/lib/flat-button';
 
 const Link = ({active, children, onClick}) => {
   if (active) {
@@ -6,13 +7,15 @@ const Link = ({active, children, onClick}) => {
   }
 
   return (
-    <a href='#'
+    <FlatButton
+      style={{width: '20%'}}
+      primary={true}
       onClick={(e) => {
         e.preventDefault()
         onClick()
     }}>
       {children}
-    </a>
+    </FlatButton>
   )
 }
 
