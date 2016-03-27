@@ -1,9 +1,10 @@
 let nextTodo = 0;
 
 export const addTodo = (text) => {
+  var id = new Date() + nextTodo++
   return {
     type: 'ADD_TODO',
-    id: nextTodo++,
+    id: id,
     text
   }
 }
