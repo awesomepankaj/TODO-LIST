@@ -24,6 +24,18 @@ const todo = (state, action) => {
       getTodos.splice(index, 1, modifiedTodo)
       localStorage.setItem('todos', JSON.stringify(getTodos));
       return modifiedTodo
+    case 'DELETE_TODO':
+      console.log(state, action)
+      var newState = _.remove(state, (t) => {
+        return t.id !== action.id
+      })
+      var todos = _.remove(getTodos, (t) => {
+        return t.id !== action.id
+      })
+
+      localStorage.setItem('todos', JSON.stringify(todos));
+      console.log(newState)
+      return newState
 
     default:
       return state
@@ -41,6 +53,8 @@ const todos = (state = storeTodos, action) => {
       return state.map((t) => 
         todo(t, action)                
       )
+    case 'DELETE_TODO':
+      return todo(state, action)
     default: 
       return state
   }

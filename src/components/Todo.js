@@ -6,13 +6,15 @@ import ActionAssignment from 'material-ui/lib/svg-icons/action/assignment';
 import IconButton from 'material-ui/lib/icon-button';
 import Done from 'material-ui/lib/svg-icons/action/done';
 import Restore from 'material-ui/lib/svg-icons/action/restore';
+import Delete from 'material-ui/lib/svg-icons/action/delete';
 
 var colors = styles.Colors
-const Todo = ({onClick, completed, text}) => (
+const Todo = ({onClick, onDeleteClick, completed, text}) => (
   <ListItem 
     leftAvatar={<Avatar icon={<ActionAssignment />} backgroundColor={colors.blue500} />}
     rightIconButton={
-      completed ? <IconButton 
+      <div>
+      {completed ? <IconButton 
         tooltip="restore" 
         onClick={onClick}
       >
@@ -23,7 +25,14 @@ const Todo = ({onClick, completed, text}) => (
         onClick={onClick}
       >
         <Done />
-      </IconButton>
+      </IconButton>}
+      {completed && <IconButton
+        tooltip="delete"
+        onClick={onDeleteClick}>
+          <Delete />
+        </IconButton>
+      } 
+      </div>
     }
     style={{
       opacity: completed ? 0.5 : 1
