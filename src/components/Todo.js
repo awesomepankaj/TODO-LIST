@@ -5,13 +5,20 @@ import Avatar from 'material-ui/lib/avatar';
 import ActionAssignment from 'material-ui/lib/svg-icons/action/assignment';
 import IconButton from 'material-ui/lib/icon-button';
 import Done from 'material-ui/lib/svg-icons/action/done';
+import Restore from 'material-ui/lib/svg-icons/action/restore';
 
 var colors = styles.Colors
 const Todo = ({onClick, completed, text}) => (
   <ListItem 
     leftAvatar={<Avatar icon={<ActionAssignment />} backgroundColor={colors.blue500} />}
     rightIconButton={
-      <IconButton 
+      completed ? <IconButton 
+        tooltip="restore" 
+        onClick={onClick}
+      >
+        <Restore />
+      </IconButton>
+      : <IconButton 
         tooltip="Done" 
         onClick={onClick}
       >
@@ -19,7 +26,7 @@ const Todo = ({onClick, completed, text}) => (
       </IconButton>
     }
     style={{
-      textDecoration: completed ? 'line-through' : 'none'
+      opacity: completed ? 0.5 : 1
     }}
   >
   {text}
